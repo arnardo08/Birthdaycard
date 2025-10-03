@@ -43,19 +43,12 @@
     }
 
     .typewriter {
-      display: inline-block;
-      overflow: hidden;
-      border-right: 3px solid var(--accent-color);
-      white-space: nowrap;
-      font-size: clamp(1.2rem, 4vw, 1.6rem);
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
       font-weight: 400;
       min-height: 2em;
-      animation: blink 0.7s step-end infinite;
-    }
-
-    @keyframes blink {
-      from, to { border-color: transparent }
-      50% { border-color: var(--accent-color) }
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.4;
     }
 
     .emoji {
