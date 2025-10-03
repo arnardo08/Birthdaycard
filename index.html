@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página en construcción</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #fdfdfd;
+      --text-color: #333;
+      --accent-color: #444;
+      --font-main: 'Poppins', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, var(--bg-color), #f2f2f2);
+      font-family: var(--font-main);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: var(--text-color);
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      max-width: 90%;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 30px;
+      color: var(--accent-color);
+    }
+
+    .typewriter {
+      display: inline-block;
+      overflow: hidden;
+      border-right: 3px solid var(--accent-color);
+      white-space: nowrap;
+      font-size: 1.6em;
+      font-weight: 400;
+      min-height: 2em;
+      animation: blink 0.7s step-end infinite;
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent }
+      50% { border-color: var(--accent-color) }
+    }
+
+    .emoji {
+      font-size: 2.5em;
+      margin-top: 30px;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      .typewriter {
+        font-size: 1.2em;
+      }
+      .emoji {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚧 Página en construcción 🚧</h1>
+    <div id="typewriter" class="typewriter"></div>
+    <div class="emoji">🛠️✨</div>
+  </div>
+
+  <script>
+    const el = document.getElementById('typewriter');
+    const text = "Estamos preparando algo especial para ti...";
+    let interval;
+
+    function typeText() {
+      el.textContent = "";
+      let i = 0;
+      clearInterval(interval);
+      interval = setInterval(() => {
+        el.textContent = text.slice(0, i);
+        i++;
+        if (i > text.length) clearInterval(interval);
+      }, 80);
+    }
+
+    typeText();
+    setInterval(typeText, 10000); // reinicia cada 10 segundos
+  </script>
+</body>
+</html>
