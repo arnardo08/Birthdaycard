@@ -21,18 +21,20 @@
     touch-action: pan-y;
   }
 
-  /* Contenedor escalable */
+  /* Contenedor principal */
   #container {
-    width: 380px;
-    transform-origin: top center;
+    width: 80vw;
+    max-width: 400px;
     position: relative;
+    transform-origin: top center;
   }
 
   /* Sobre */
   .sobre {
     position: relative;
     width: 100%;
-    height: 270px;
+    height: 35vh;
+    max-height: 300px;
     perspective: 1200px;
     z-index: 2;
   }
@@ -44,7 +46,7 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, #ffb6c1, #8a2be2);
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 12px 12px;
     z-index: 1;
   }
 
@@ -56,7 +58,7 @@
     height: 0;
     border-left: 50% solid transparent;
     border-right: 50% solid transparent;
-    border-bottom: 135px solid #d990f5;
+    border-bottom: 50% solid #d990f5;
     transform-origin: top;
     transition: transform 0.8s ease;
     z-index: 3;
@@ -77,14 +79,14 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 75vw;
-    max-width: 350px;
+    width: 70vw;
+    max-width: 400px;
     height: 70vh;
-    max-height: 550px;
+    max-height: 700px;
     background: #f5e1b3;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-    padding: 24px;
+    padding: 2.5vh 3vw;
     opacity: 0;
     z-index: 10;
     transform: translate(-50%, -50%) scale(1);
@@ -105,13 +107,13 @@
   }
 
   .mensaje h1 {
-    margin: 0.2em 0;
-    font-size: clamp(24px, 5.5vw, 30px);
+    margin: 0.3em 0;
+    font-size: clamp(22px, 5vw, 30px);
   }
 
   .mensaje h2 {
     margin: 0.2em 0;
-    font-size: clamp(20px, 4.5vw, 26px);
+    font-size: clamp(18px, 4.5vw, 26px);
   }
 
   .mensaje p {
@@ -120,30 +122,47 @@
     font-size: clamp(18px, 4vw, 22px);
   }
 
-  /* Ajustes para móviles */
-  @media (max-width: 400px) {
-    #container {
-      transform: scale(0.85);
-    }
-
-    .carta {
-      width: 85vw;
-      height: 65vh;
-      max-height: 500px;
-      padding: 20px;
-    }
+  /* Márgenes adaptativos por dispositivo iPhone */
+  /* iPhone SE 1ra gen / 5/5s/5c */
+  @media (max-width: 320px) {
+    #container { width: 90vw; }
+    .carta { width: 88vw; height: 60vh; padding: 2vh 4vw; }
   }
 
-  @media (max-width: 320px) {
-    #container {
-      transform: scale(0.75);
-    }
+  /* iPhone 6/7/8 */
+  @media (min-width: 321px) and (max-width: 375px) {
+    #container { width: 85vw; }
+    .carta { width: 82vw; height: 65vh; padding: 2vh 3.5vw; }
+  }
 
-    .carta {
-      width: 90vw;
-      height: 60vh;
-      padding: 18px;
-    }
+  /* iPhone 6/7/8 Plus */
+  @media (min-width: 376px) and (max-width: 414px) {
+    #container { width: 80vw; }
+    .carta { width: 78vw; height: 68vh; padding: 2.2vh 3vw; }
+  }
+
+  /* iPhone X / XS / 11 Pro / 12 Mini */
+  @media (min-width: 375px) and (max-width: 414px) and (max-height: 812px) {
+    #container { width: 80vw; }
+    .carta { width: 78vw; height: 70vh; padding: 2.2vh 3vw; }
+  }
+
+  /* iPhone XR / 11 / 12 / 12 Pro / 13 / 13 Pro */
+  @media (min-width: 414px) and (max-width: 428px) {
+    #container { width: 75vw; }
+    .carta { width: 73vw; height: 72vh; padding: 2.5vh 3vw; }
+  }
+
+  /* iPhone 14 / 14 Pro */
+  @media (min-width: 430px) and (max-width: 460px) {
+    #container { width: 72vw; }
+    .carta { width: 70vw; height: 72vh; padding: 2.5vh 3vw; }
+  }
+
+  /* iPhone 14 Pro Max / 15 Pro Max */
+  @media (min-width: 461px) {
+    #container { width: 70vw; }
+    .carta { width: 68vw; height: 74vh; padding: 3vh 3vw; }
   }
 
 </style>
