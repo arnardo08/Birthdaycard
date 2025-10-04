@@ -23,7 +23,7 @@
 
   /* Contenedor escalable */
   #container {
-    width: 360px; /* tamaño base */
+    width: 380px; /* tamaño base */
     transform-origin: top center;
     position: relative;
   }
@@ -32,7 +32,7 @@
   .sobre {
     position: relative;
     width: 100%;
-    height: 250px;
+    height: 270px;
     perspective: 1200px;
     z-index: 2;
   }
@@ -56,7 +56,7 @@
     height: 0;
     border-left: 50% solid transparent;
     border-right: 50% solid transparent;
-    border-bottom: 125px solid #d990f5;
+    border-bottom: 135px solid #d990f5;
     transform-origin: top;
     transition: transform 0.8s ease;
     z-index: 3;
@@ -77,14 +77,14 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 80vw;
-    max-width: 360px;
-    height: 70vh;
-    max-height: 500px;
+    width: 85vw;
+    max-width: 380px;
+    height: 75vh;
+    max-height: 600px;
     background: #f5e1b3;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-    padding: 20px;
+    padding: 22px;
     opacity: 0;
     z-index: 10;
     transform: translate(-50%, -50%) scale(1);
@@ -106,30 +106,30 @@
 
   .mensaje h1 {
     margin: 0.2em 0;
-    font-size: clamp(18px, 5vw, 24px);
+    font-size: clamp(20px, 5vw, 26px);
   }
 
   .mensaje h2 {
     margin: 0.2em 0;
-    font-size: clamp(14px, 4vw, 20px);
+    font-size: clamp(16px, 4vw, 22px);
   }
 
   .mensaje p {
     margin: 0.5em 0;
-    line-height: 1.4em;
-    font-size: clamp(13px, 3.5vw, 16px);
+    line-height: 1.5em;
+    font-size: clamp(15px, 3.5vw, 18px);
   }
 
   /* Escalado adicional para pantallas muy pequeñas */
   @media (max-width: 400px) {
     #container {
-      transform: scale(0.85);
+      transform: scale(0.9);
     }
   }
 
   @media (max-width: 320px) {
     #container {
-      transform: scale(0.7);
+      transform: scale(0.75);
     }
   }
 
@@ -165,11 +165,13 @@
     const carta = document.getElementById('carta');
 
     setTimeout(() => {
+      // Abrir solapa
       solapa.classList.add('abierta');
 
       solapa.addEventListener('transitionend', function handler() {
         solapa.removeEventListener('transitionend', handler);
 
+        // Animaciones simultáneas
         sobre.classList.add('slide-out');
         carta.classList.add('slide-in');
       });
