@@ -23,7 +23,7 @@
 
   /* Contenedor escalable */
   #container {
-    width: 380px; /* tamaño base */
+    width: 380px;
     transform-origin: top center;
     position: relative;
   }
@@ -77,14 +77,14 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 85vw;
-    max-width: 380px;
-    height: 75vh;
-    max-height: 600px;
+    width: 75vw;
+    max-width: 350px;
+    height: 70vh;
+    max-height: 550px;
     background: #f5e1b3;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-    padding: 22px;
+    padding: 24px;
     opacity: 0;
     z-index: 10;
     transform: translate(-50%, -50%) scale(1);
@@ -92,11 +92,11 @@
     font-family: 'Patrick Hand', cursive;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
   }
 
   .carta::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: none;
   }
 
   .slide-in {
@@ -106,30 +106,43 @@
 
   .mensaje h1 {
     margin: 0.2em 0;
-    font-size: clamp(20px, 5vw, 26px);
+    font-size: clamp(24px, 5.5vw, 30px);
   }
 
   .mensaje h2 {
     margin: 0.2em 0;
-    font-size: clamp(16px, 4vw, 22px);
+    font-size: clamp(20px, 4.5vw, 26px);
   }
 
   .mensaje p {
     margin: 0.5em 0;
     line-height: 1.5em;
-    font-size: clamp(15px, 3.5vw, 18px);
+    font-size: clamp(18px, 4vw, 22px);
   }
 
-  /* Escalado adicional para pantallas muy pequeñas */
+  /* Ajustes para móviles */
   @media (max-width: 400px) {
     #container {
-      transform: scale(0.9);
+      transform: scale(0.85);
+    }
+
+    .carta {
+      width: 85vw;
+      height: 65vh;
+      max-height: 500px;
+      padding: 20px;
     }
   }
 
   @media (max-width: 320px) {
     #container {
       transform: scale(0.75);
+    }
+
+    .carta {
+      width: 90vw;
+      height: 60vh;
+      padding: 18px;
     }
   }
 
@@ -165,13 +178,11 @@
     const carta = document.getElementById('carta');
 
     setTimeout(() => {
-      // Abrir solapa
       solapa.classList.add('abierta');
 
       solapa.addEventListener('transitionend', function handler() {
         solapa.removeEventListener('transitionend', handler);
 
-        // Animaciones simultáneas
         sobre.classList.add('slide-out');
         carta.classList.add('slide-in');
       });
